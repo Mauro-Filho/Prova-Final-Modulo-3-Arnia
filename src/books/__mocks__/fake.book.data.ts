@@ -10,7 +10,7 @@ export const fakeBooksData: Book[] = [
     languages:  ["portugues"],
     status: true,
     author: "Jorge Amado1",
-    review_Id: "639914ff9e1926eaf8d4b568" as unknown as Types.ObjectId,
+    review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
   },
 {
   title: "As Cronicas de Joaquim",
@@ -18,7 +18,7 @@ export const fakeBooksData: Book[] = [
   languages:  ["portugues"],
   status: true,
   author: "Jorge Amado",
-  review_Id: "639914ff9e1926eaf8d4b568" as unknown as Types.ObjectId,
+  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
 
 },
 {
@@ -27,7 +27,7 @@ export const fakeBooksData: Book[] = [
   languages:  ["portugues"],
   status: true,
   author: "Careca",
-  review_Id: "639914ff9e1926eaf8d4b568" as unknown as Types.ObjectId,
+  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
 },
 {
   title: "As Cronicas de Madeira",
@@ -35,9 +35,8 @@ export const fakeBooksData: Book[] = [
   languages:  ["portugues", "espanhol", "italiano"],
   status: true,
   author: "Pepe o pequenino",
-  review_Id: "639914ff9e1926eaf8d4b568" as unknown as Types.ObjectId,
- }
-];
+  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
+}];
 
 export const updatedBook: Book = {
   title: "O cachorro caramelo",
@@ -45,5 +44,5 @@ export const updatedBook: Book = {
   languages:  ["portugues"],
   status: true,
   author: "Um Brasileiro",
-  review_Id: "639914ff9e1926eaf8d4b568" as unknown as Types.ObjectId,
+  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
 };

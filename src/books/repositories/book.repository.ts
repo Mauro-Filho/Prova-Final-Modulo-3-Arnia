@@ -5,12 +5,12 @@ export class BookRepository {
   constructor(private readonly bookModel: Model<Book>) {}
 
   async getAll(): Promise<Book[]> {
-    const books = await this.bookModel.find().populate('review');
+    const books = await this.bookModel.find();
     return books;
   }
 
   async getById(id: string): Promise<Book> {
-    const book = await this.bookModel.findById(id);
+    const book = await this.bookModel.findById(id).populate("review_Id");
 
     if (book === null) {
       return {} as Book;
@@ -35,6 +35,21 @@ export class BookRepository {
 
     return updatedBook;
   }
+
+  async updateReview(bookId: string, review_Id: string): Promise<Book> {
+    const updatedBook = await this.bookModel.findByIdAndUpdate(bookId, 
+      
+      {$set: { review: review_Id }
+    }, {   new: true  });
+
+    if (updatedBook === null) {
+      return {} as Book;
+    }
+
+    return updatedBook;
+  }
+
+
 }
 
 const bookRepository = new BookRepository(BookModel);

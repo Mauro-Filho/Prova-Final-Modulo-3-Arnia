@@ -2,6 +2,7 @@ import { Book } from "../models/book.model";
 import { BookRepository } from "../repositories/book.repository";
 import {
   CustomErrors,
+  InvalidIdError,
   invalidIdError,
   promiseError,
 } from "../../utils/error.handler";
@@ -55,4 +56,17 @@ export class BookService {
       return promiseError(error);
     }
   }
+
+  async associateReview(bookId: string, reviewId: string): Promise<Book | InvalidIdError | CustomErrors> {
+    try {
+        const updateBook = await this.bookRepository.updateReview(bookId, reviewId)
+        if (!isIdValid(bookId)) {
+            return invalidIdError(bookId);
+        }
+        return updateBook
+    } catch (error) {
+        return promiseError(error)
+    }
+}
+
 }

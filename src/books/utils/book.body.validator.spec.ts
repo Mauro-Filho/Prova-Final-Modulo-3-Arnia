@@ -4,11 +4,15 @@ import { Record } from "globals";
 
 const validateTestObj = {
     body: {
-        title: "A garota sexy",
-        releaseDateOf: "0a",
-        languages: "12312312",
-        status: true,
-        author: "tonico",
+        // title: "A garota sexy",
+        // releaseDateOf: "0a",
+        // languages: "12312312",
+        // status: true,
+        // author: "tonico",
+        languages: "oi",
+    status: true,
+    // author: req.body.author,
+    review_Id: "639b46e02363fb1962af9617"
         
     },
 } as unknown as  Record

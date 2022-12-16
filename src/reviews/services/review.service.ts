@@ -2,9 +2,12 @@ import { CustomErrors, invalidIdError, promiseError, } from "../../utils/error.h
 import { Review } from "../models/review.model";
 import { ReviewRepository } from "../repositories/review.repository";
 import { Types } from "mongoose";
+import { RequestUpdateReviewDto } from "../../../src/reviews/dtos/update-review.dto";
+import { BookService } from "../../books/services/book.service";
 
 export class ReviewService {
-    constructor(private readonly reviewRepository: ReviewRepository) {}
+    constructor(private readonly reviewRepository: ReviewRepository,
+        private readonly bookService: BookService) {}
 
     async getAll(): Promise<Review[] | CustomErrors> {
         try {
@@ -28,16 +31,17 @@ export class ReviewService {
         }
     }
 
-    async create(reviewBody: Review): Promise<Review | CustomErrors>{
+    async create(reviewBody: Review, bookId: string): Promise<Review | CustomErrors>{
         try {
             const review = await this.reviewRepository.create(reviewBody)
+           await  this.bookService.associateReview(bookId, (review as any).id )
             return review 
         } catch (error) {
             return promiseError(error)
         }
     }
 
-    async update(id: string, reviewBody: Review): Promise<Review | CustomErrors>{
+    async update(id: string, reviewBody: RequestUpdateReviewDto): Promise<Review | CustomErrors>{
         if(Types.ObjectId.isValid(id) === false ){
             return invalidIdError(id)
         }

@@ -39,9 +39,9 @@ export class ReviewController {
     if (invalidBody(req)) {
       return res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
     }
-    const { body } = req;
+    const { body, params } = req;
 
-    const result = await this.bookService.create(body);
+    const result = await this.bookService.create(body, params.bookId);
 
     if ("promiseError" in result) {
       return res.status(StatusCode.INTERNAL_SERVER_ERROR).json(result);

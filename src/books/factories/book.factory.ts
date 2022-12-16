@@ -8,7 +8,9 @@ export function bookFactory() {
   const booksService = new BookService(booksRepository);
   const booksController = new BookController(booksService);
 
-  return booksController;
+  return {booksController, booksService}
 }
 
-export const booksFactory = bookFactory();
+ const bookCreated = bookFactory()
+export const booksFactory = bookCreated.booksController
+export const bookService = bookCreated.booksService
