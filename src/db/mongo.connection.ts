@@ -2,7 +2,6 @@ import { connection, connections, connect } from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-
 const variableAmbientMongo: string = process.env.MONGODB || "";
 
 export function mongoConnect() {
@@ -28,8 +27,6 @@ export function mongoConnect() {
 
   connect(variableAmbientMongo);
 }
-
- 
 
 export function mongoDisconnect() {
   connection.close();

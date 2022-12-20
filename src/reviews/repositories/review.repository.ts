@@ -3,34 +3,35 @@ import { Model } from "mongoose";
 import { RequestUpdateReviewDto } from "../../../src/reviews/dtos/update-review.dto";
 
 export class ReviewRepository {
-  constructor(private readonly bookModel: Model<Review>) {}
+  constructor(private readonly reviewModel: Model<Review>) {}
 
   async getAll(): Promise<Review[]> {
-    const books = await this.bookModel.find();
-    return books;
+    const review = await this.reviewModel.find();
+    return review;
   }
 
   async getById(id: string): Promise<Review> {
-    const book = await this.bookModel.findById(id);
+    const reviewId = await this.reviewModel.findById(id);
 
-    if (book === null) {
+    if (reviewId === null) {
       return {} as Review;
     }
 
-    return book;
+    return reviewId;
   }
 
-  async create(book: Review): Promise<Review> {
-    const newBook = this.bookModel.create(book);
-    return newBook;
+  
+  async create(review: Review): Promise<Review> {
+    const newReview = this.reviewModel.create(review);
+    return newReview;
   }
 
   async update(id: string, book: RequestUpdateReviewDto): Promise<Review> {
-    const updatedBook = await this.bookModel.findByIdAndUpdate(
+    const updatedReview = await this.reviewModel.findByIdAndUpdate(
       id,
       {
         $push: {
-          descrip: book.descrip,
+          description: book.description,
           updatedAt: new Date().getTime(),
         }
       },
@@ -39,11 +40,11 @@ export class ReviewRepository {
       }
     );
 
-    if (updatedBook === null) {
+    if (updatedReview === null) {
       return {} as Review;
     }
 
-    return updatedBook;
+    return updatedReview;
   }
 }
 

@@ -1,4 +1,8 @@
-import { fakeReviewData, updatedReview, fakeId } from "../__mocks__/fake.review.data";
+import {
+  fakeReviewData,
+  updatedReview,
+  fakeId,
+} from "../__mocks__/fake.review.data";
 import { fakeReviewModel } from "../__mocks__/fake.review.model";
 import { ReviewRepository } from "./review.repository";
 import { jest } from "@jest/globals";
@@ -12,7 +16,6 @@ describe("BookRepository", () => {
       expect(books).toEqual(fakeReviewData);
     });
     it("should return an empty array", async () => {
-      
       jest.spyOn(fakeReviewModel, "find").mockResolvedValueOnce([]);
 
       const books = await bookRepository.getAll();
@@ -35,18 +38,6 @@ describe("BookRepository", () => {
     it("should create a book", async () => {
       const newBook = await bookRepository.create(fakeReviewData[0]);
       expect(newBook).toEqual(fakeReviewData[0]);
-    });
-  });
-  describe("update", () => {
-    it("should update a book", async () => {
-      const book = await bookRepository.update(fakeId, fakeReviewData[0]);
-      expect(book).toEqual(updatedReview);
-    });
-    it("should return an empty object", async () => {
-      jest.spyOn(fakeReviewModel, "findByIdAndUpdate").mockResolvedValueOnce(null);
-
-      const book = await bookRepository.update(fakeId, fakeReviewData[0]);
-      expect(book).toEqual({});
     });
   });
 });

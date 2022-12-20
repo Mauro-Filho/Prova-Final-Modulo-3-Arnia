@@ -51,7 +51,6 @@ export class ReviewController {
   }
 
   async update(req: Request, res: Response) {
-    
     if (invalidBody(req)) {
       res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
       return;

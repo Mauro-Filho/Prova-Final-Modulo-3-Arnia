@@ -6,9 +6,9 @@ const reviewsSchema = new Schema(
       type: String,
       required: true,
       maxLength: 24,
-      // unique: true
+      unique: true
     },
-    descrip: [
+    description: [
       {
         type: String,
         required: true,

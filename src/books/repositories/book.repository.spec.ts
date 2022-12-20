@@ -10,26 +10,14 @@ import { jest } from "@jest/globals";
 const bookRepository = new BookRepository(fakeBookModel);
 
 describe("BookRepository", () => {
-  describe("getAll", () => {
-    it("should return a list of books", async () => {
-      const books = await bookRepository.getAll();
-      expect(books).toEqual(fakeBooksData);
-    });
-    it("should return an empty array", async () => {
-      jest.spyOn(fakeBookModel, "find").mockResolvedValueOnce([]);
-
-      const books = await bookRepository.getAll();
-      expect(books).toEqual([]);
-    });
-  });
-
   describe("getById", () => {
     it("should return a book", async () => {
       jest.spyOn(fakeBookModel, "findById").mockImplementationOnce(
-  () => ({
-           populate: jest.fn().mockImplementationOnce(() => fakeBooksData[0]),
-          }) as any
-       );
+        () =>
+          ({
+            populate: jest.fn().mockImplementationOnce(() => fakeBooksData[0]),
+          } as any)
+      );
       const book = await bookRepository.getById(fakeId);
       console.log(
         book,
@@ -38,14 +26,6 @@ describe("BookRepository", () => {
       );
       expect(book).toEqual(fakeBooksData[0]);
     });
-    //
-    // it("should return an empty object", async () => {
-    //   jest.spyOn(fakeBookModel, "findById").mockResolvedValueOnce(null) 
-      
-    //   const book = await bookRepository.getById(fakeId);
-    //   expect(book).toEqual({});
-    // });
-    //
   });
   describe("create", () => {
     it("should create a book", async () => {

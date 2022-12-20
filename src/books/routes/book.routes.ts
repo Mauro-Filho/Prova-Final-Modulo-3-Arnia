@@ -3,12 +3,12 @@ import { booksFactory } from "../factories/book.factory";
 
 const booksRoutes = express.Router();
 
-//o bind é encarregado de manter o escopo do this
-booksRoutes.get("/", booksFactory.getAll.bind(booksFactory));
-booksRoutes.get("/:id", booksFactory.getById.bind(booksFactory));
-booksRoutes.get("/:author", booksFactory.getById.bind(booksFactory));
-booksRoutes.post("/", booksFactory.create.bind(booksFactory));
-booksRoutes.put("/:id", booksFactory.update.bind(booksFactory));
-// booksRoutes.delete("/:id", booksFactory.delete.bind(booksFactory));
+booksRoutes.get("/", booksFactory.getAll.bind(booksFactory)); //ok
+booksRoutes.get("/:id", booksFactory.getById.bind(booksFactory)); //ok
+booksRoutes.patch("/:id/author", booksFactory.updateAuthor.bind(booksFactory)); //ok
+
+booksRoutes.post("/", booksFactory.create.bind(booksFactory)); //ok
+booksRoutes.put("/:id", booksFactory.update.bind(booksFactory)); //ok
+booksRoutes.patch("/:id/status", booksFactory.updateStatus.bind(booksFactory)); //ok
 
 export default booksRoutes;

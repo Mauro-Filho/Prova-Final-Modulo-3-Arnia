@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 import { Book } from "../models/book.model";
 
-export const fakeId = "632130d41623c49bf7b1c7e9";
+export const fakeId = "639dfc0d78f364bd2fb5ed10";
 
 export const fakeBooksData: Book[] = [
     {
@@ -10,7 +10,7 @@ export const fakeBooksData: Book[] = [
     languages:  ["portugues"],
     status: true,
     author: "Jorge Amado1",
-    review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
+    reviewId:  new Types.ObjectId("639dfc0d78f364bd2fb5ed10")
   },
 {
   title: "As Cronicas de Joaquim",
@@ -18,7 +18,7 @@ export const fakeBooksData: Book[] = [
   languages:  ["portugues"],
   status: true,
   author: "Jorge Amado",
-  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
+  reviewId:  new Types.ObjectId("639dfc0d78f364bd2fb5ed11")
 
 },
 {
@@ -27,7 +27,7 @@ export const fakeBooksData: Book[] = [
   languages:  ["portugues"],
   status: true,
   author: "Careca",
-  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
+  reviewId:  new Types.ObjectId("639dfc0d78f364bd2fb5ed12")
 },
 {
   title: "As Cronicas de Madeira",
@@ -35,7 +35,7 @@ export const fakeBooksData: Book[] = [
   languages:  ["portugues", "espanhol", "italiano"],
   status: true,
   author: "Pepe o pequenino",
-  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
+  reviewId:  new Types.ObjectId("639dfc0d78f364bd2fb5ed12")
 }];
 
 export const updatedBook: Book = {
@@ -44,5 +44,5 @@ export const updatedBook: Book = {
   languages:  ["portugues"],
   status: true,
   author: "Um Brasileiro",
-  review_Id:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
+  reviewId:  new Types.ObjectId("632130d41623c49bf7b1c7e9")
 };

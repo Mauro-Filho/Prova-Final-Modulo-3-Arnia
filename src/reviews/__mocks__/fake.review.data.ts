@@ -4,22 +4,22 @@ export const fakeId = "632130d41623c49bf7b1c7e9"
 
 export const fakeReviewData: Review[] = [
     {
-        title: "o gato de botas ",
+        title: "o gato de botas",
         score: 4,
-        descrip: ["oi", "ouy"],
+        description: ["oi", "ouy"],
         updatedAt: [new Date()]
 
     },
     {
         title: "Carlinha a feiticeira",
         score: 2,
-        descrip: ["oi", "ouy"],
+        description: ["oi", "ouy"],
         updatedAt: [new Date()]
     },
     {
         title: "o cangaceiro perigoso",
         score: 3,
-        descrip: ["oi", "ouy"],
+        description: ["oi", "ouy"],
         updatedAt: [new Date()]
     },
 ]
@@ -27,7 +27,7 @@ export const fakeReviewData: Review[] = [
 export const updatedReview: Review = {
     title: "um dia vai",
     score: 1,
-    descrip: ["oi", "ouy"],
+    description: ["oi", "ouy"],
     updatedAt: [new Date()]
 
 
